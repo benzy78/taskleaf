@@ -42,6 +42,8 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem 'slim-rails'
 gem 'html2slim'
 
+# bootstrap
+gem 'bootstrap'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
