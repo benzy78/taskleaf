@@ -45,6 +45,9 @@ gem 'html2slim'
 # bootstrap
 gem 'bootstrap'
 
+# sassc-railsがロードできないというエラーへの対応
+gem 'sassc-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
