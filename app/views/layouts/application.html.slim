@@ -9,8 +9,20 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light.ms-3.mb-3
-      .navbar-brand =link_to "Taskleaf", tasks_path, class:"logo"
+    header.bg-light
+      .container
+        .d-flex
+          .app-title.navbar.navbar-expand-md.navbar-light.mb-3
+            .navbar-brand =link_to "Taskleaf", tasks_path, class:"logo"
+          ul.ms-auto.d-flex.mt-3
+            - if current_user 
+              li.nav-item.flex-fill= link_to "タスク一覧", tasks_path, class:"nav-link me-3"
+              - if current_user.admin?
+                li.nav-item.flex-fill= link_to "ユーザー一覧", admin_users_path, class:"nav-link me-3"
+              li.nav-item.flex-fill= button_to "ログアウト", logout_path, method: :delete, class:"nav-link"
+            - else
+              li.nav-item= link_to "ログイン", tasks_path, class:"nav-link"
+
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice

@@ -1,0 +1,10 @@
+h1.mb-3 ログイン
+= form_with scope: :session, local: true do |f|
+  .form-group.mb-3
+    = f.label :email, "メールアドレス"
+    = f.text_field :email,class:"form-control", id: "session_email"
+  .form-group.mb-3
+    = f.label :password, "パスワード"
+    = f.password_field :password, class:"form-control", id:"session_password"
+  .form-submit 
+    = f.submit value:"ログインする", class:"btn btn-primary"
