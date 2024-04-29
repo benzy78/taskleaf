@@ -1,0 +1,10 @@
+h1 ユーザー登録
+
+- if @user.errors.present?
+  ul#error_explanation 
+    -@user.errors.each do |message|
+      li.alert.alert-danger = message.full_message
+      
+
+= render partial:"form", locals: {user: @user}
+

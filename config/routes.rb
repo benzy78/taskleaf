@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+  end
   root to: 'tasks#index'
   resources :tasks
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -10,7 +10,7 @@ html
     = javascript_importmap_tags
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light.ms-3.mb-3
-      .navbar-brand Taskleaf
+      .navbar-brand =link_to "Taskleaf", tasks_path, class:"logo"
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice
