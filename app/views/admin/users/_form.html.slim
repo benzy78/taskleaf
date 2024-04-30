@@ -1,0 +1,21 @@
+= form_with model: [:admin, @user], local: true do |form|
+  .form-group.mb-3
+    = form.label :name, "名前"
+    = form.text_field :name, class:"form-control"
+  .form-grpup.mb-3
+    = form.label :email, "メールアドレス"
+    = form.text_field :email, class:"form-control"
+  .form-check.mb-3
+    = form.label :admin do 
+      = form.check_box :admin
+      | 管理者権限
+  .form-group.mb-3
+    = form.label :password, "パスワード"
+    = form.password_field :password, class:"form-control"
+  .form-group.mb-3
+    = form.label :password_confirmation, "パスワード（確認）"
+    = form.password_field :password_confirmation, class:"form-control"
+  .form-submit.mb-3
+    = form.submit nil, value:"登録する", class:"btn btn-primary"
+
+
