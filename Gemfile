@@ -58,8 +58,8 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
   gem 'pry'
-  gem "rspec-rails", "~> 3.7"
-  gem "factory_bot_rails", "~>4.11"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
