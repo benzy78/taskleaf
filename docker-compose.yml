@@ -1,12 +1,13 @@
-version: "3.9"
+version: "3.8"
 services:
   db:
-    image: postgres
+    image: postgres:13-alpine
     container_name: postgresql_taskleaf
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -18,10 +19,12 @@ services:
     depends_on:
       - db
       - chrome
+
   chrome:
-    image: selenium/standalone-chrome:latest
+    image: seleniarm/standalone-chromium:latest
     ports:
       - 4444:4444
+
 volumes:
   bundle:
   postgre_data:
