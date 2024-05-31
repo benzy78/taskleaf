@@ -56,7 +56,9 @@ describe 'タスク管理機能', type: :system do
 
     before do
       visit new_task_path
+      # ↓フォームのラベルが"名称"となっているフィールドにtask_nameという変数の値を入力
       fill_in '名称', with: task_name
+      fill_in '詳しい説明', with: task_name
       click_button '登録する'
     end
 
