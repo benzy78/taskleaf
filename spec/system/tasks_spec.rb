@@ -80,6 +80,25 @@ describe 'タスク管理機能', type: :system do
 
   end
 
+
+  describe '編集機能' do
+    let(:login_user) {user_a}
+    
+    before do
+      visit edit_task_path(task_a)
+      fill_in '名称', with: task_rename
+      fill_in '詳しい説明', with: task_rename
+      click_button '更新する'
+    end
+
+    context '編集画面で名称と詳しい説明を編集したとき' do
+      let(:task_rename) {'編集のテストを書く'}
+      it '正常に登録される' do
+        expect(page).to have_content '編集のテストを書く'
+      end
+    end
+  end
+
 end
 
 
