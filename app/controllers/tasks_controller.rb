@@ -43,12 +43,12 @@ class TasksController < ApplicationController
 
   def confirm_new
     @task = current_user.tasks.new(task_params)
-    if @task.valid?
-      # render :confirm_new
-    else
-      render :new
-    end
-    # render :new unless @task.valid?
+    # if @task.valid?
+    #   # render :confirm_new
+    # else
+    #   render :new
+    # end
+    render :new unless @task.valid?
   end
   
   private
