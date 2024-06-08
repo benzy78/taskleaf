@@ -33,7 +33,6 @@ class TasksController < ApplicationController
       render :new
       return
     end
-
     if @task.save
       redirect_to @task, notice: "タスク「#{@task.name}を登録しました。」"
     else
@@ -43,13 +42,10 @@ class TasksController < ApplicationController
 
   def confirm_new
     @task = current_user.tasks.new(task_params)
-    # if @task.valid?
-    #   # render :confirm_new
-    # else
-    #   render :new
-    # end
-    render :new unless @task.valid?
+    render :new, status: :unprocessable_entity unless @task.valid?
   end
+
+
   
   private
   def task_params
