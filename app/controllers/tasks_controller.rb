@@ -42,7 +42,12 @@ class TasksController < ApplicationController
 
   def confirm_new
     @task = current_user.tasks.new(task_params)
-    render :new, status: :unprocessable_entity unless @task.valid?
+    if @task.valid?
+      render :confirm_new, status: :accepted
+    else
+      render :new, status: :unprocessable_entity
+    end
+    
   end
 
 
