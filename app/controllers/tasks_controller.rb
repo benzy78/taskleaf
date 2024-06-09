@@ -30,7 +30,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
     if params[:back].present?
-      render :new
+      render :new, status: :accepted
       return
     end
     if @task.save
@@ -42,13 +42,16 @@ class TasksController < ApplicationController
 
   def confirm_new
     @task = current_user.tasks.new(task_params)
-    render :new, status: :unprocessable_entity unless @task.valid?
+    if @task.valid?
+      render :confirm_new, status: :accepted
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
-
-  
   private
   def task_params
     params.require(:task).permit(:name, :description)
   end
 end
+
