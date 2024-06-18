@@ -18,14 +18,14 @@ class TasksController < ApplicationController
   # なんでupdateとdestroyの変数はインスタンス変数じゃないんだ？
   # >特に意味はない。インスタンス変数で書いても問題ない。
   def update
-    task.update!(task_params)
-    redirect_to tasks_url, notice: "タスク「#{task.name}を更新しました」"
+    @task.update!(task_params)
+    redirect_to tasks_url, notice: "タスク「#{@task.name}を更新しました」"
   end
 
   def destroy
     # @task = current_user.tasks.find(params[:id])
-    task.destroy
-    redirect_to tasks_url, notice: "タスク「#{task.name}を削除しました」"
+    @task.destroy
+    redirect_to tasks_url, notice: "タスク「#{@task.name}を削除しました」"
   end
 
   def create
