@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   db:
     image: postgres:13-alpine
@@ -19,6 +18,16 @@ services:
     depends_on:
       - db
       - chrome
+      - mailcatcher
+    environment:
+      - MAILCATCHER_SMTP_PORT=1025
+      
+
+  mailcatcher:
+    image: sj26/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"
 
   chrome:
     image: seleniarm/standalone-chromium:latest
