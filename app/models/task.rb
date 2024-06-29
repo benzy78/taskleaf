@@ -5,6 +5,7 @@ class Task < ApplicationRecord
   validate :validate_name_not_including_comma
 
   belongs_to :user
+  has_one_attached :image
 
 # スコープの定義:デフォルトでは、recentがundefineになった。
   scope :recent, -> { order(created_at: :desc) }
