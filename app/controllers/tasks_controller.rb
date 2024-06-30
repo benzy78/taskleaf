@@ -60,7 +60,7 @@ class TasksController < ApplicationController
 
   def import
     current_user.tasks.import(params[:file])
-    redirect_to tasks_url, notice: "タスクを追加しました"
+    redirect_to tasks_url, notice: "タスクを追加しました."
   end
 
   private
