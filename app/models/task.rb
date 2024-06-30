@@ -34,13 +34,13 @@ class Task < ApplicationRecord
 
   #CSV形式のファイルのimport
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(file.path, encoding: 'ISO-8859-1:UTF-8', headers: true) do |row|
       task = new
       task.attributes = row.to_hash.slice(*csv_attributes)
       task.save!
     end
-  rescue CSV::MalformedCSVError => e
-    puts "CSVファイルの形式が正しくありません: #{e.message}"
+  # rescue CSV::MalformedCSVError => e
+  #   puts "CSVファイルの形式が正しくありません: #{e.message}"
   end
 
 
