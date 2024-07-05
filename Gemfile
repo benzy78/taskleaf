@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.0.6"
 
+gem 'sidekiq'
+
 gem 'kaminari'
 
 gem 'ransack'
