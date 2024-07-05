@@ -6,6 +6,12 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+    
+  redis:
+    image: redis
+    container_name: redis-container
+    ports:
+      - "6379:6379"
 
   web:
     build: .
